@@ -1,9 +1,14 @@
 class CompanyInfo {
+  startRequest(){
+    cy.contains('Anfrage starten').click() 
+  }
   companyName(cName) {
-       cy.get("#companyName").click({ force: true }).type(cName)
+      var company = cy.get("#companyName")
+      company.click({ force: true }).type(cName)
+      
   }
   legalForm() {
-    cy.get(
+   cy.get(
       '.first-column > [data-v-d4074bca=""][data-v-6168c69e=""] > .form-group > .len-custom-select > .len-custom-select__input'
     ).click({ force: true })
     cy.get(".len-custom-select__options > :nth-child(3)").click()

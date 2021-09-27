@@ -11,15 +11,14 @@ describe("My Test", () => {
           "Ihre unverbindliche Kreditanfrage mit nur einem Klick"
         ).should("be.visible")
         // entering company info in the form
-
         cinfo.companyName("Testing Company")
         cinfo.legalForm()
         cinfo.sale()
         cinfo.address("street 12 house 14")
-        cinfo.established("121997") // format mmyyyy
-        cinfo.postalCode("80331")
-        cinfo.purposeOfUse()
-        cinfo.city("Berlin")
+       cinfo.established("121997") // format mmyyyy
+       //cinfo.postalCode("80331")
+       cinfo.purposeOfUse()
+       cinfo.city("Berlin")
 
         // entering company represntative info
         crepresn.selectRadio()
@@ -33,14 +32,7 @@ describe("My Test", () => {
         crepresn.cityy("Berlin")
         crepresn.phone("1716895430")
         crepresn.accpterms()
-        cy.get(".button") // click on request button and check assertions
-          .click()
-          .then(() => {
-            cy.contains("Unser Team ist persönlich für Sie da").should(
-              "be.visible"
-            )
-            cy.url().should("include", "ready")
-          })
+        crepresn.requestButton()
       }
     )
   })
